@@ -83,4 +83,23 @@ public class CustomerMapper {
                 .build();
 
     }
+
+    public void updateCustomerEntityFromDto(Customer customerToUpdate, CustomerRequestDto customerRequestDto) {
+
+        // Updating each field of the Customer
+        customerToUpdate.setName(customerRequestDto.name());
+        customerToUpdate.setSex(customerRequestDto.sex());
+        customerToUpdate.setBirthDate(customerRequestDto.birthDate());
+
+        // Updating the HealthProblemSet
+        if (customerRequestDto.healthProblems() != null) {
+
+            // Cleaning the existing collection
+            customerToUpdate.getHealthProblems().clear();
+
+            // Copying the new HealthProblemSet
+            copyHealthProblemsFromDtoToEntity(customerRequestDto.healthProblems(), customerToUpdate);
+        }
+
+    }
 }

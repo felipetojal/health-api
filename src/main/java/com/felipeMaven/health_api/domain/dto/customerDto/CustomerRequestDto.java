@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 public record CustomerRequestDto(
+
         @NotBlank(message = "Name cannot be blank!")    // Field cannot be: null, empty or made only by blank spaces
         String name,
 
@@ -25,4 +26,5 @@ public record CustomerRequestDto(
 
         @Valid  // Checks for the HealthProblemRequestDto validations
         Set<HealthProblemRequestDto> healthProblems
+
 ) {}

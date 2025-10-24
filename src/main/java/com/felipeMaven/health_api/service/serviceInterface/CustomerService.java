@@ -2,8 +2,9 @@ package com.felipeMaven.health_api.service.serviceInterface;
 
 import com.felipeMaven.health_api.domain.dto.customerDto.CustomerRequestDto;
 import com.felipeMaven.health_api.domain.dto.customerDto.CustomerResponseDto;
+import com.felipeMaven.health_api.domain.entity.Customer;
 
-import java.util.List;
+import java.util.Set;
 
 public interface CustomerService {
 
@@ -19,13 +20,14 @@ public interface CustomerService {
      * @param customerRequestDto
      * @return
      */
-    public CustomerResponseDto updateCustomer(CustomerRequestDto customerRequestDto);
+    public CustomerResponseDto updateCustomerById(Long id, CustomerRequestDto customerRequestDto);
 
     /**
      * Method to list all customers
+     *
      * @return
      */
-    public List<CustomerResponseDto> listAllCustomers();
+    public Set<CustomerResponseDto> listAllCustomers();
 
     /**
      * Method to get customer by id
